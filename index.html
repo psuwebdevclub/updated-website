@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+    attribution 
+    <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/dollar-symbol" title="dollar symbol icons">Dollar symbol icons created by Good Ware - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/project-management" title="project-management icons">Project-management icons created by itim2101 - Flaticon</a>
+    -->
+    <nav>
+      We're currently merging with PSU ACM. Join our GroupMe for updates
+    </nav>
+    <main>
+      <div class="title">
+        <h1 class="hover-underline">PSU Web Dev</h1>
+        <p>
+          workshops, project funding, guest speakers, and more every Monday
+          Westgate E210 @ 6:30pm
+        </p>
+        <button
+          onclick="location.href='https://groupme.com/join_group/94001113/LVVoeTJK'"
+        >
+          join us ->
+        </button>
+      </div>
+      <div class="code">
+        <p>we teach...</p>
+        <div id="code-display" class="code-display">
+          <div class="code-header">
+            <div class="language-badge">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon lang-js"
+              >
+                <path
+                  d="M18 16.08a2.93 2.93 0 0 1-2.8 1.92h-2.63a2.93 2.93 0 0 1-2.8-1.92"
+                ></path>
+                <path d="M14 16v6"></path>
+                <path d="M10 16v6"></path>
+                <path d="M12 16v6"></path>
+                <path d="M18 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3"></path>
+                <path d="M4 6v12a2 2 0 0 0 2 2h3"></path>
+                <path d="M5 10h5"></path>
+                <path d="M7 8v4"></path>
+              </svg>
+              <span id="code-language">JavaScript</span>
+            </div>
+            <div id="code-title" class="code-title">Modern ES6 Function</div>
+          </div>
+          <pre id="code-content" class="code-content">
+// Modern JavaScript async function
+      const fetchData = async (url) => {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          return null;
+        }
+      }</pre
+          >
+        </div>
+
+        <div id="dots-container" class="dots-container">
+          <!-- Dots will be added dynamically -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="box">
+        <img src="dollar-symbol.png" alt="placeholder" />
+        <p>10,000 of funding spent on members so far</p>
+      </div>
+      <div class="box">
+        <img src="user.png" alt="placeholder" />
+        <p>200 registered club members</p>
+      </div>
+      <div class="box">
+        <img src="clipboard.png" alt="placeholder" />
+        <p>Multiple active fullstack projects</p>
+      </div>
+    </footer>
+    <script>
+      // Code examples data
+      const codeExamples = [
+        {
+          language: "JavaScript",
+          title: "Modern ES6 Function",
+          code: `// Modern JavaScript async function
+    const fetchData = async (url) => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return null;
+      }
+    }`,
+          color: "lang-js",
+        },
+        {
+          language: "React",
+          title: "Custom Hook",
+          code: `// Custom React Hook for window size
+    import { useState, useEffect } from 'react';
+    
+    function useWindowSize() {
+      const [size, setSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+      
+      useEffect(() => {
+        const handleResize = () => {
+          setSize({
+            width: window.innerWidth,
+            height: window.innerHeight
+          });
+        };
+        
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+      
+      return size;
+    }`,
+          color: "lang-react",
+        },
+        {
+          language: "CSS",
+          title: "Modern Grid Layout",
+          code: `.container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 1rem;
+    }
+    
+    .card {
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }`,
+          color: "lang-css",
+        },
+        {
+          language: "Flask",
+          title: "RESTful API Route",
+          code: `# Flask RESTful API endpoint
+    app = Flask(__name__)
+    CORS(app)
+    
+    @app.route('/api/users', methods=['GET'])
+    def get_users():
+        try:
+            # Get query parameters
+            page = int(request.args.get('page', 1))
+            limit = int(request.args.get('limit', 10))
+            
+            # Fetch users with pagination
+        except Exception as e:
+            return jsonify({
+                'success': False,
+                'message': str(e)
+            }), 500`,
+          color: "lang-flask",
+        },
+        {
+          language: "Django",
+          title: "Model & REST Viewset",
+          code: `# Django model and REST framework viewset
+    
+    class ProjectViewSet(viewsets.ModelViewSet):
+        queryset = Project.objects.all().order_by('-created_at')
+        serializer_class = ProjectSerializer
+        permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+        
+        @action(detail=True, methods=['post'])
+        def star(self, request, pk=None):
+            project = self.get_object()
+            project.stars += 1
+            project.save()
+            return Response({'stars': project.stars})`,
+          color: "lang-django",
+        },
+
+        {
+          language: "Node.js",
+          title: "Express API Endpoint",
+          code: `// Express.js API route
+    const express = require('express');
+    const router = express.Router();
+    
+    router.get('/api/users', async (req, res) => {
+      try {
+        const users = await User.find()
+          .sort({ createdAt: -1 })
+          .limit(10);
+          
+        res.json({ success: true, data: users });
+      } catch (error) {
+        res.status(500).json({ 
+          success: false, 
+          message: 'Server error' 
+        });
+      }
+    });
+    
+    module.exports = router;`,
+          color: "lang-nodejs",
+        },
+      ];
+
+      // Widget elements
+      const codeDisplay = document.getElementById("code-display");
+      const codeLanguage = document.getElementById("code-language");
+      const codeTitle = document.getElementById("code-title");
+      const codeContent = document.getElementById("code-content");
+      const dotsContainer = document.getElementById("dots-container");
+
+      // Track current example
+      let currentIndex = 0;
+      let isTransitioning = false;
+
+      // Create navigation dots
+      codeExamples.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.className = index === 0 ? "dot active" : "dot";
+        dot.addEventListener("click", () => {
+          if (index !== currentIndex && !isTransitioning) {
+            goToExample(index);
+          }
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      // Update language icon color
+      function updateLanguageIcon(colorClass) {
+        const icon = document.querySelector(".language-badge svg");
+        // Remove all language color classes
+        icon.classList.remove(
+          "lang-js",
+          "lang-react",
+          "lang-css",
+          "lang-flask",
+          "lang-django",
+          "lang-sql",
+          "lang-nodejs"
+        );
+        // Add the current language color class
+        icon.classList.add(colorClass);
+      }
+
+      // Update active dot
+      function updateActiveDot(index) {
+        const dots = document.querySelectorAll(".dot");
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.add("active");
+          } else {
+            dot.classList.remove("active");
+          }
+        });
+      }
+
+      // Go to specific example with fade transition
+      function goToExample(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        // Start fade out
+        codeDisplay.classList.add("fade-out");
+
+        // After fade out completes, change content
+        setTimeout(() => {
+          const example = codeExamples[index];
+          codeLanguage.textContent = example.language;
+          codeTitle.textContent = example.title;
+          codeContent.textContent = example.code;
+          updateLanguageIcon(example.color);
+          updateActiveDot(index);
+          currentIndex = index;
+
+          // Start fade in
+          codeDisplay.classList.remove("fade-out");
+          isTransitioning = false;
+        }, 500); // Matches transition duration
+      }
+
+      // Auto-rotate examples
+      function startAutoRotation() {
+        return setInterval(() => {
+          if (!isTransitioning) {
+            const nextIndex = (currentIndex + 1) % codeExamples.length;
+            goToExample(nextIndex);
+          }
+        }, 6000); // 6 seconds per example
+      }
+
+      // Initialize auto-rotation
+      let rotationInterval = startAutoRotation();
+
+      // Pause rotation on hover
+      codeDisplay.addEventListener("mouseenter", () => {
+        clearInterval(rotationInterval);
+      });
+
+      // Resume rotation when mouse leaves
+      codeDisplay.addEventListener("mouseleave", () => {
+        rotationInterval = startAutoRotation();
+      });
+
+      // Initialize the first example
+      updateLanguageIcon(codeExamples[0].color);
+    </script>
+  </body>
+</html>
